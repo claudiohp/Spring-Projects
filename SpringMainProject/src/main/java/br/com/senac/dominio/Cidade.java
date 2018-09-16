@@ -2,20 +2,18 @@ package br.com.senac.dominio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Aluno implements Serializable {
+public class Cidade implements Serializable{
 
 	/**
 	 * 
@@ -25,17 +23,13 @@ public class Aluno implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nome;
-	private String email;
-	private String senha;
 	
-	@OneToMany(mappedBy="aluno")
-	private List<Endereco> enderecos = new ArrayList<>();
-	
-	@ElementCollection
-	@CollectionTable(name="telefone")
-	private Set<String> telefones = new HashSet<>();
-	
+	@ManyToOne
+	@JoinColumn(name="estado_id")
+	private Estado estado;
+
 	public Integer getId() {
 		return id;
 	}
@@ -52,4 +46,12 @@ public class Aluno implements Serializable {
 		this.nome = nome;
 	}
 
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+		
 }
