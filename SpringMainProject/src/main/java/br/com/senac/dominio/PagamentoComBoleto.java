@@ -1,12 +1,26 @@
 package br.com.senac.dominio;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 
+import br.com.senac.dominio.enums.StatusPagamento;
+
 @Entity
 public class PagamentoComBoleto extends Pagamento implements Serializable {
+	
+	public PagamentoComBoleto() {
+		super();
+	}
+	
+	public PagamentoComBoleto(Integer id, StatusPagamento statusPagamento, Pedido pedido, Date dataVencimento,
+			Date dataPagamento) {
+		super(id, statusPagamento, pedido);
+		this.dataVencimento = dataVencimento;
+		this.dataPagamento = dataPagamento;
+	}
+
 
 	/**
 	 * 

@@ -6,11 +6,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 
 import br.com.senac.dominio.enums.StatusPagamento;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED	)
 public class Pagamento implements Serializable{
+	
+	public Pagamento() {
+		super();
+	}
+	
+	public Pagamento(Integer id, StatusPagamento statusPagamento, Pedido pedido) {
+		super();
+		this.id = id;
+		this.statusPagamento = statusPagamento;
+		this.pedido = pedido;
+	}
 
 	/**
 	 * 
@@ -22,7 +39,12 @@ public class Pagamento implements Serializable{
 	private Integer id;
 	
 	private StatusPagamento statusPagamento;
-
+	
+	@OneToOne
+	@JoinColumn(name="pedido_id")
+	@MapsId
+	private Pedido pedido;
+	
 	public Integer getId() {
 		return id;
 	}

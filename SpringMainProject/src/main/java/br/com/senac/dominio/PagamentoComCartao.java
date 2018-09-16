@@ -4,8 +4,21 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 
+import br.com.senac.dominio.enums.StatusPagamento;
+
 @Entity
 public class PagamentoComCartao extends Pagamento implements Serializable{
+	
+	
+	public PagamentoComCartao() {
+		
+	}
+	
+	public PagamentoComCartao(Integer id, StatusPagamento statusPagamento, Pedido pedido, Integer numeroDeParcelas) {
+		super(id, statusPagamento, pedido);
+		this.numeroDeParcelas = numeroDeParcelas;
+	}
+
 
 	/**
 	 * 

@@ -36,6 +36,9 @@ public class Aluno implements Serializable {
 	@CollectionTable(name="telefone")
 	private Set<String> telefones = new HashSet<>();
 	
+	@OneToMany(mappedBy="aluno")
+	private List<Pedido> pedidos = new ArrayList<>();
+	
 	public Integer getId() {
 		return id;
 	}
