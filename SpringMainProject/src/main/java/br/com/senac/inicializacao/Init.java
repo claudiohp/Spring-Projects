@@ -1,7 +1,9 @@
 package br.com.senac.inicializacao;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -9,7 +11,9 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import br.com.senac.dominio.Aluno;
+import br.com.senac.dominio.Categoria;
 import br.com.senac.dominio.Cidade;
+import br.com.senac.dominio.Curso;
 import br.com.senac.dominio.Endereco;
 import br.com.senac.dominio.Estado;
 import br.com.senac.dominio.Pagamento;
@@ -17,7 +21,9 @@ import br.com.senac.dominio.PagamentoComBoleto;
 import br.com.senac.dominio.Pedido;
 import br.com.senac.dominio.enums.StatusPagamento;
 import br.com.senac.repositorio.AlunoRepositorio;
+import br.com.senac.repositorio.CategoriaRepositorio;
 import br.com.senac.repositorio.CidadeRepositorio;
+import br.com.senac.repositorio.CursoRepositorio;
 import br.com.senac.repositorio.EnderecoRepositorio;
 import br.com.senac.repositorio.EstadoRepositorio;
 import br.com.senac.repositorio.PagamentoRepositorio;
@@ -43,6 +49,12 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 	
 	@Autowired
 	PagamentoRepositorio pagamentorepositorio;
+	
+	@Autowired
+	CursoRepositorio cursorepositorio;
+	
+	@Autowired
+	CategoriaRepositorio categoriarepositorio;
 	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -114,7 +126,22 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
+		Categoria categoria1 = new Categoria();
+		categoria1.setNome("Java");
+		
+		Curso curso1 = new Curso();
+		curso1.setNome("Java Web");
+		curso1.setDescricao("Java web para alunos");
+		curso1.setPreco(300.00);
+		
+		HashSet<Categoria> categorias = new HashSet<Categoria>();
+		categorias.add(categoria1);
+		
+		curso1.setCategorias(categorias);
+		cursorepositorio.save(curso1);
+		categoriarepositorio.save(categoria1);
+		
 	}
 
 }

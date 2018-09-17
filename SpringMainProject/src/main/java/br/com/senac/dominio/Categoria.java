@@ -1,34 +1,42 @@
 package br.com.senac.dominio;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Cidade implements Serializable{
+public class Categoria implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String nome;
 	
-	@ManyToOne
-	@JoinColumn(name="estado_id")
-	private Estado estado;
+	@ManyToMany(mappedBy="categorias")
+	private Set<Curso> cursos = new HashSet<>();
+	
+	public Set<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(Set<Curso> cursos) {
+		this.cursos = cursos;
+	}
 
 	public Integer getId() {
-		return id;
+		return id;	
 	}
 
 	public void setId(Integer id) {
@@ -42,13 +50,4 @@ public class Cidade implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public Estado getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
-		
 }

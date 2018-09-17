@@ -3,9 +3,9 @@ package br.com.senac.repositorio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.senac.dominio.Pedido;
+import br.com.senac.dominio.Curso;
 
 @Repository
-public interface PedidoRepositorio extends JpaRepository<Pedido, Integer>{
+public interface CursoRepositorio extends JpaRepository<Curso, Integer>{
 
 }
