@@ -129,11 +129,19 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		
 		Categoria categoria1 = new Categoria();
 		categoria1.setNome("Java");
+		Categoria categoria2 = new Categoria();
+		categoria2.setNome("Spring");
+		
 		
 		Curso curso1 = new Curso();
 		curso1.setNome("Java Web");
 		curso1.setDescricao("Java web para alunos");
 		curso1.setPreco(300.00);
+		
+		Curso curso2 = new Curso();
+		curso2.setNome("Spring-MVC");
+		curso2.setDescricao("Spring web para alunos");
+		curso2.setPreco(400.00);
 		
 		HashSet<Categoria> categorias = new HashSet<Categoria>();
 		categorias.add(categoria1);

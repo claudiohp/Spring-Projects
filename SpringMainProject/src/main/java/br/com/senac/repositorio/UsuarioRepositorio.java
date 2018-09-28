@@ -4,9 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.senac.dominio.Aluno;
+import br.com.senac.dominio.Login;
 
 @Repository
-public interface AlunoRepositorio extends JpaRepository<Aluno, Integer>{
+public interface UsuarioRepositorio extends JpaRepository<Login, Integer>{
 	
-	Aluno findByNome (String nome);
+	/*
+	Login findByLogin(String login);
+	 */
 }
