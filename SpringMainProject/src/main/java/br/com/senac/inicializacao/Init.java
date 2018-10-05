@@ -59,9 +59,12 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		System.out.println("Aplicação iniciada com sucesso.");
-
+		
+		Aluno alunoGravado = alunorepositorio.findByEmail("claudio.henriquepj@gmail.com");
+		
 		Aluno aluno1 = new Aluno();
 		aluno1.setNome("Claudio");
+		aluno1.setEmail("claudio.henriquepj@gmail");
 
 		Aluno aluno2 = new Aluno();
 		aluno2.setNome("Jorge");

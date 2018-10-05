@@ -28,10 +28,6 @@ public class Aluno implements Serializable {
 	private Integer id;
 	private String nome;
 	private String email;
-	private String senha;
-	/*
-	private Set<Login> login;
-	*/
 	
 	@OneToMany(mappedBy="aluno")
 	private List<Endereco> enderecos = new ArrayList<>();
@@ -42,24 +38,21 @@ public class Aluno implements Serializable {
 	
 	@OneToMany(mappedBy="aluno")
 	private List<Pedido> pedidos = new ArrayList<>();
-	/*
-	@ManyToMany(mappedBy="alunos_login")
-	*/
 	
 	public Integer getId() {
 		return id;
 	}
-	/*
-	public Set<Login> getLogin() {
-		return login;
-	}
 
-	public void setLogin(Set<Login> login) {
-		this.login = login;
-	}
-	*/
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getNome() {

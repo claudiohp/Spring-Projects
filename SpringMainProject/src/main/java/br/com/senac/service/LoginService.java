@@ -1,25 +1,23 @@
 package br.com.senac.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.senac.dominio.Login;
-import br.com.senac.repositorio.LoginRepositorio;
+import br.com.senac.dominio.Aluno;
+import br.com.senac.repositorio.AlunoRepositorio;
 
 @Service
 public class LoginService {
 
 	@Autowired
-	private LoginRepositorio loginrepositorio;
+	private AlunoRepositorio alunorepositorio;
 	
-	/*
-	public Login findByLogin (String username) {
+	public boolean loginAluno(Aluno aluno) {
+		Aluno logarAluno = alunorepositorio.findByNomeAndEmail(aluno.getNome(), aluno.getEmail());
 
-		return loginrepositorio.findByLogin(username);
-		
+		if(logarAluno != null) {
+			return false;
+		}
+		return true;
 	}
-	*/
 }

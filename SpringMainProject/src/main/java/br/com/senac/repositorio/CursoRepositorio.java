@@ -7,5 +7,6 @@ import br.com.senac.dominio.Curso;
 
 @Repository
 public interface CursoRepositorio extends JpaRepository<Curso, Integer>{
+	
 
 }

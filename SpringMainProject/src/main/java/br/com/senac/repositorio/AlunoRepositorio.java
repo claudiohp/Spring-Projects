@@ -9,4 +9,8 @@ import br.com.senac.dominio.Aluno;
 public interface AlunoRepositorio extends JpaRepository<Aluno, Integer>{
 	
 	Aluno findByNome (String nome);
+	
+	Aluno findByEmail (String email);
+
+	Aluno findByNomeAndEmail(String nome, String email);
 }
