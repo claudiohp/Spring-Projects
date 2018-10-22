@@ -4,11 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+
+import com.mysql.fabric.xmlrpc.base.Array;
 
 import br.com.senac.dominio.Aluno;
 import br.com.senac.dominio.Categoria;
@@ -134,24 +137,31 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		categoria1.setNome("Java");
 		Categoria categoria2 = new Categoria();
 		categoria2.setNome("Spring");
-		
+		Categoria categoria3 = new Categoria();
+		categoria3.setNome("HTML");
+		Categoria categoria4 = new Categoria();
+		categoria4.setNome("Python");
 		
 		Curso curso1 = new Curso();
 		curso1.setNome("Java Web");
-		curso1.setDescricao("Java web para alunos");
-		curso1.setPreco(300.00);
 		
 		Curso curso2 = new Curso();
 		curso2.setNome("Spring-MVC");
-		curso2.setDescricao("Spring web para alunos");
-		curso2.setPreco(400.00);
 		
-		HashSet<Categoria> categorias = new HashSet<Categoria>();
+		Curso curso3 = new Curso();
+		curso3.setNome("TAG HTML");
+		
+		Curso curso4 = new Curso();
+		curso4.setNome("Python leigos");
+		
+		List<Categoria> categorias = new ArrayList<>();
 		categorias.add(categoria1);
 		
 		curso1.setCategorias(categorias);
-		cursorepositorio.save(curso1);
-		categoriarepositorio.save(categoria1);
+		curso2.setCategorias(categorias);
+		
+		cursorepositorio.saveAll(Arrays.asList(curso1,curso2,curso3, curso4));
+		categoriarepositorio.saveAll(Arrays.asList(categoria1, categoria2, categoria3, categoria4));
 		
 	}
 

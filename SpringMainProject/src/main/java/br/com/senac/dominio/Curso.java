@@ -1,7 +1,9 @@
 package br.com.senac.dominio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -35,13 +37,13 @@ public class Curso implements Serializable {
 			joinColumns = {@JoinColumn(name="curso_id")},
 			inverseJoinColumns = {@JoinColumn(name="categoria_id")}			
 			)
-			private Set<Categoria> categorias = new HashSet<>();
+			private List<Categoria> categorias = new ArrayList<>();
 	
-	public Set<Categoria> getCategorias() {
+	public List<Categoria> getCategorias() {
 		return categorias;
 	}
 
-	public void setCategorias(Set<Categoria> categorias) {
+	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 
