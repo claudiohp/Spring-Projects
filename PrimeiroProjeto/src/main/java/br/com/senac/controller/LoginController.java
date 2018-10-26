@@ -21,14 +21,14 @@ public class LoginController {
 		boolean validate = loginService.loginAluno(aluno);
 
 		if (validate) {
-			return "menu/paginaMenu.html";
+			return "redirect:/menu";
 		}
-		return "erro/paginaErro.html";
+		return "error/paginaErro.html";
 	}
 
 	@GetMapping("/login")
 	public ModelAndView validarAluno() {
-		ModelAndView mv = new ModelAndView("/menu/paginaLogin");
+		ModelAndView mv = new ModelAndView("menu/paginaLogin");
 		mv.addObject("aluno", new Aluno());
 		return mv;
 	}

@@ -23,7 +23,7 @@ public class CursoController {
 
 	@GetMapping("/adicionarCurso")
 	public ModelAndView adicionarCurso() {
-		ModelAndView mv = new ModelAndView("paginaAdicionarCurso");
+		ModelAndView mv = new ModelAndView("curso/paginaAdicionarCurso");
 		mv.addObject("curso", new Curso());
 		mv.addObject("categorias", categoriaService.listarCategorias());
 		return mv;
@@ -31,7 +31,7 @@ public class CursoController {
 	
 	@GetMapping("/listarCursos")
 	public ModelAndView listaCursos() {
-		ModelAndView mv = new ModelAndView("paginaListarCurso");
+		ModelAndView mv = new ModelAndView("curso/paginaListarCurso");
 		mv.addObject("cursos", cursoService.listarTodosCursos());
 		return mv;
 	}
@@ -56,7 +56,7 @@ public class CursoController {
 	
 	@GetMapping("/alterarCurso/{id}")
 	public ModelAndView alterar(@PathVariable("id") Integer id) {
-		ModelAndView mv = new ModelAndView("paginaAlterarCurso");
+		ModelAndView mv = new ModelAndView("curso/paginaAlterarCurso");
 		mv.addObject("curso", cursoService.buscar(id));
 		return mv;
 	}
