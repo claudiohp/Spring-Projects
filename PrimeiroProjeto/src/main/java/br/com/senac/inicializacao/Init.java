@@ -156,9 +156,14 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		
 		List<Categoria> categorias = new ArrayList<>();
 		categorias.add(categoria1);
+		categorias.add(categoria2);
+		categorias.add(categoria3);
+		categorias.add(categoria4);
 		
 		curso1.setCategorias(categorias);
 		curso2.setCategorias(categorias);
+		curso3.setCategorias(categorias);
+		curso4.setCategorias(categorias);
 		
 		cursorepositorio.saveAll(Arrays.asList(curso1,curso2,curso3, curso4));
 		categoriarepositorio.saveAll(Arrays.asList(categoria1, categoria2, categoria3, categoria4));
