@@ -64,6 +64,11 @@ public class CursoController {
 		return mv;
 	}
 	
-	
+	@GetMapping("/index")
+	public ModelAndView index() {
+		ModelAndView mv = new ModelAndView("curso/index");
+		mv.addObject("cursos", cursoService.listarTodosCursos());
+		return mv;
+	}
 	
 }
