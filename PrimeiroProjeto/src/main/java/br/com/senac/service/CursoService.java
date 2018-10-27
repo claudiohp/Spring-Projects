@@ -23,10 +23,9 @@ public class CursoService {
 	}
 	
 	public Curso buscar(Integer id) {
-		System.out.println(id);
 		Optional<Curso> objCurso = repoCur.findById(id);
 		return objCurso.orElseThrow(() -> new ObjectNotFoundException(
-				"Curso não encontrada! id: "+ id +"tipo: "+ Curso.class.getName()));
+				"Curso não encontrada! id: "+ id +"Tipo: "+ Curso.class.getName()));
 		
 	}
 	

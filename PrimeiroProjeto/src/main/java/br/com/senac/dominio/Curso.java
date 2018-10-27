@@ -29,7 +29,7 @@ public class Curso implements Serializable {
 
 	private String nome;
 	private String descricao;
-	private Double preco;
+	private double preco;
 	
 	@ManyToMany(cascade= {CascadeType.ALL})
 	@JoinTable(
@@ -71,11 +71,11 @@ public class Curso implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Double getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 }
