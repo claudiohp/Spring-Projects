@@ -149,10 +149,10 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		curso2.setNome("Spring-MVC");
 		
 		Curso curso3 = new Curso();
-		curso3.setNome("TAG HTML");
+		curso3.setNome("HTML5");
 		
 		Curso curso4 = new Curso();
-		curso4.setNome("Python leigos");
+		curso4.setNome("Django");
 		
 		List<Categoria> categorias = new ArrayList<>();
 		categorias.add(categoria1);

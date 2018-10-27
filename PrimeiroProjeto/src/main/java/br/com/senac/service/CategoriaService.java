@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.senac.dominio.Categoria;
+import br.com.senac.dominio.Curso;
 import br.com.senac.repositorio.CategoriaRepositorio;
-import javassist.tools.rmi.ObjectNotFoundException;
+import br.com.senac.exception.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -16,9 +17,10 @@ public class CategoriaService {
 	@Autowired
 	private CategoriaRepositorio repoCat;
 	
-	public Categoria buscar(Integer id) throws ObjectNotFoundException {
+	public Categoria buscar(Integer id) {
 		Optional<Categoria> objCategoria = repoCat.findById(id);
-		return objCategoria.orElseThrow(() -> new ObjectNotFoundException("Categoria não encontrada! Id: " + id + ", Tipo: " + Categoria.class.getName()));
+		return objCategoria.orElseThrow(() -> new ObjectNotFoundException(
+				"Categoria não encontrada! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 	
 	public Categoria inserir(Categoria objCategoria) {

@@ -62,18 +62,27 @@
 									th:field="*{descricao}"></textarea>
 							</div>
 						</div>
-
+						
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textarea">Categoria</label>
+							<div class="col-md-1" th:each="cat: ${categorias}">
+								<input type="checkbox" th:field="*{categorias}"
+									th:value="${cat.id}"> <label th:text="${cat.nome}"></label>
+							</div>
+						</div>
+						
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="button1id"></label>
 							<div class="col-md-8">
 								<button id="button1id" name="button1id" class="btn btn-danger">Alterar</button>
-								<button class="btn btn-sm btn-primary" th:href="@{/listarCursos}">Voltar</button>
+								<button class="btn btn-sm btn-primary"
+									th:href="@{/listarCursos}">Voltar</button>
 							</div>
 						</div>
 
 					</fieldset>
 				</form>
-				
+
 			</div>
 		</div>
 	</div>

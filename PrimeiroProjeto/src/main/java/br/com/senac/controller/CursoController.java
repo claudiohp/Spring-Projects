@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.senac.dominio.Categoria;
 import br.com.senac.dominio.Curso;
 import br.com.senac.service.CategoriaService;
 import br.com.senac.service.CursoService;
@@ -26,6 +27,7 @@ public class CursoController {
 		ModelAndView mv = new ModelAndView("curso/paginaAdicionarCurso");
 		mv.addObject("curso", new Curso());
 		mv.addObject("categorias", categoriaService.listarCategorias());
+//		mv.addObject("categoria",new Categoria());
 		return mv;
 	}
 	
@@ -58,6 +60,7 @@ public class CursoController {
 	public ModelAndView alterar(@PathVariable("id") Integer id) {
 		ModelAndView mv = new ModelAndView("curso/paginaAlterarCurso");
 		mv.addObject("curso", cursoService.buscar(id));
+		mv.addObject("categorias", categoriaService.listarCategorias());
 		return mv;
 	}
 	

@@ -39,6 +39,7 @@ public class CursoService {
 		objCursoEncontrado.setNome(objCurso.getNome());
 		objCursoEncontrado.setPreco(objCurso.getPreco());
 		objCursoEncontrado.setDescricao(objCurso.getDescricao());
+		objCursoEncontrado.setCategorias(objCurso.getCategorias());
 		return repoCur.save(objCursoEncontrado);
 	}
 

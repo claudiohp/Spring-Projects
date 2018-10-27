@@ -56,15 +56,13 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="OC">Categorias</label>
-							<div class="col-md-4">
-								<select id="OC" name="OC" class="form-control"
-									th:field="*{categorias}">
-									<option th:each="cat : ${categorias}" th:value="${cat.id}"
-										th:text="${cat.nome}">Selecionar</option>
-								</select>
+							<label class="col-md-4 control-label" for="textarea">Categoria</label>
+							<div class="col-md-1" th:each="cat: ${categorias}">
+								<input type="checkbox" th:field="*{categorias}"
+									th:value="${cat.id}"> <label th:text="${cat.nome}"></label>
 							</div>
 						</div>
+
 
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="button1id"></label>
@@ -73,7 +71,6 @@
 								<a th:href="@{/menu}" class="btn btn-primary">Voltar</a>
 							</div>
 						</div>
-						
 					</fieldset>
 				</form>
 			</div>
