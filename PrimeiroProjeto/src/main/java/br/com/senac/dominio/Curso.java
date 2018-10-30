@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Curso implements Serializable {
 
@@ -31,6 +33,7 @@ public class Curso implements Serializable {
 	private String descricao;
 	private double preco;
 	
+	@JsonIgnore
 	@ManyToMany(cascade= {CascadeType.ALL})
 	@JoinTable(
 			name="curso_categoria",
