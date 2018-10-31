@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -19,6 +20,7 @@ import br.com.senac.dominio.Cidade;
 import br.com.senac.dominio.Curso;
 import br.com.senac.dominio.Endereco;
 import br.com.senac.dominio.Estado;
+import br.com.senac.dominio.ItemPedido;
 import br.com.senac.dominio.Pagamento;
 import br.com.senac.dominio.PagamentoComBoleto;
 import br.com.senac.dominio.Pedido;
@@ -29,6 +31,7 @@ import br.com.senac.repositorio.CidadeRepositorio;
 import br.com.senac.repositorio.CursoRepositorio;
 import br.com.senac.repositorio.EnderecoRepositorio;
 import br.com.senac.repositorio.EstadoRepositorio;
+import br.com.senac.repositorio.ItemPedidoRepositorio;
 import br.com.senac.repositorio.PagamentoRepositorio;
 import br.com.senac.repositorio.PedidoRepositorio;
 
@@ -58,6 +61,9 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 	
 	@Autowired
 	CategoriaRepositorio categoriarepositorio;
+	
+	@Autowired
+	ItemPedidoRepositorio itempedidorepositorio;
 	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -168,6 +174,18 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		cursorepositorio.saveAll(Arrays.asList(curso1,curso2,curso3, curso4));
 		categoriarepositorio.saveAll(Arrays.asList(categoria1, categoria2, categoria3, categoria4));
 		
+		ItemPedido item1 = new ItemPedido(ped1, curso1, 0.00, 1, 200.00);
+		ItemPedido item2 = new ItemPedido(ped1, curso2, 10.00, 1, 300.00);
+		
+		Set<ItemPedido> listaItens1 = new HashSet();
+		listaItens1.add(item1);
+		listaItens1.add(item2);
+		ped1.setItens(listaItens1);
+	
+		curso1.setItens(listaItens1);
+		curso2.setItens(listaItens1);
+		
+		itempedidorepositorio.saveAll(Arrays.asList(item1,item2));
 	}
 
 }

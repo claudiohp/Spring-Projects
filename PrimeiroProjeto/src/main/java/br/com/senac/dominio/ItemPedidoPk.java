@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Embeddable
 public class ItemPedidoPk implements Serializable{
@@ -14,11 +15,11 @@ public class ItemPedidoPk implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn(name="pedido_id")
 	private Pedido pedido;
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn(name="curso_id")
 	private Curso curso;
 

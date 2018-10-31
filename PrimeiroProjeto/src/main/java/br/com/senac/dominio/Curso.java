@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,6 +34,25 @@ public class Curso implements Serializable {
 	private String descricao;
 	private double preco;
 	
+	@OneToMany(mappedBy="id.curso")
+	private Set<ItemPedido> itens = new HashSet<>();
+	
+	public List<Pedido> getPedidos(){
+		List<Pedido> lista = new ArrayList<>();
+		for (ItemPedido i : itens) {
+			lista.add(i.getPedido());
+		}
+		return lista;
+	}
+	
+	public Set<ItemPedido> getItens() {
+		return itens;
+	}
+
+	public void setItens(Set<ItemPedido> itens) {
+		this.itens = itens;
+	}
+
 	@JsonIgnore
 	@ManyToMany(cascade= {CascadeType.ALL})
 	@JoinTable(
