@@ -34,9 +34,11 @@ public class Curso implements Serializable {
 	private String descricao;
 	private double preco;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="id.curso")
 	private Set<ItemPedido> itens = new HashSet<>();
 	
+	@JsonIgnore
 	public List<Pedido> getPedidos(){
 		List<Pedido> lista = new ArrayList<>();
 		for (ItemPedido i : itens) {
