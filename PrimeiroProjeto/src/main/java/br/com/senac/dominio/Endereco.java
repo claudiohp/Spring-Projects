@@ -32,7 +32,7 @@ public class Endereco implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "aluno_id")
 	private Aluno aluno;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "cidade_id")
 	private Cidade cidade;

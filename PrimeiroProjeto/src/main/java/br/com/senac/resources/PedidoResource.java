@@ -17,9 +17,14 @@ public class PedidoResource {
 	@Autowired
 	private PedidoService service;
 	
-	@RequestMapping(value="/{id]",method=RequestMethod.GET) 
+	@RequestMapping(value="/{id}",method=RequestMethod.GET) 
 	public ResponseEntity<Pedido> find(@PathVariable Integer id){
 		Pedido objPedido = service.buscar(id);
 		return ResponseEntity.ok().body(objPedido);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET) 
+	public String test(){
+		return "Está funcionando";
 	}
 }

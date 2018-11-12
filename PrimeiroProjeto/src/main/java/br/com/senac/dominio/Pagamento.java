@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import br.com.senac.dominio.enums.StatusPagamento;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED	)
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Pagamento implements Serializable{
 	
 	public Pagamento() {
