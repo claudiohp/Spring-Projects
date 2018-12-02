@@ -31,6 +31,10 @@
 				th:action="@{/listarCursos}" method="GET" style="margin: 10px">
 				<button type="submit" class="btn btn-sm btn-primary">Listar Curso</button>
 			</form>
+			<form class="form-horizontal" th:object="${carrinho}"
+				th:action="@{/index}" method="GET" style="margin: 10px">
+				<button type="submit" class="btn btn-sm btn-info">Carrinho</button>
+			</form>
 		</div>
 		</div>
 	</div>

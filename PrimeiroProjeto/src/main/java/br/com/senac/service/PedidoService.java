@@ -21,4 +21,19 @@ public class PedidoService {
 				"Pedido não encontrado! id: "+ id +"Tipo: "+ Pedido.class.getName()));
 		
 	}
+	
+	public Pedido inserir(Pedido objPedido) {
+		objPedido.setId(null);
+		return repoPedido.save(objPedido);
+	}
+	
+	public Pedido alterar(Pedido objPedido) {
+		Pedido objPedidoEncontrado = buscar(objPedido.getId());
+		objPedidoEncontrado.setDataPedido(objPedido.getDataPedido());
+		return repoPedido.save(objPedidoEncontrado);
+	}
+
+	public void excluir(Integer id) {
+		repoPedido.deleteById(id);
+	}
 }

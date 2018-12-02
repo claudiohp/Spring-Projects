@@ -150,15 +150,23 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		
 		Curso curso1 = new Curso();
 		curso1.setNome("Java Web");
-		
+		curso1.setPreco(400.00);
+		curso1.setDescricao("Java EE. Conteúdo completo.");
+	
 		Curso curso2 = new Curso();
 		curso2.setNome("Spring-MVC");
+		curso2.setPreco(500.00);
+		curso2.setDescricao("Iniciando a carreira em Spring.");
 		
 		Curso curso3 = new Curso();
 		curso3.setNome("HTML5");
+		curso3.setPreco(200.00);
+		curso3.setDescricao("Práticas de HTML.");
 		
 		Curso curso4 = new Curso();
 		curso4.setNome("Django");
+		curso4.setPreco(350.00);
+		curso4.setDescricao("Aprendendo sobre o framework Python.");
 		
 		List<Categoria> categorias = new ArrayList<>();
 		categorias.add(categoria1);
